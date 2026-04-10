@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:studentportal/view/createpage_view.dart';
 import 'package:studentportal/view/forgot_view.dart';
 import 'package:studentportal/view/login_view.dart';
+import 'package:studentportal/view/otp_view.dart';
+import 'package:studentportal/view/signup_view.dart';
 // import 'package:studentportal/view/createpage_view.dart';
 // import 'package:studentportal/view/forgot_view.dart';
 // import 'package:studentportal/view/loggin_view.dart';
