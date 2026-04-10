@@ -1,7 +1,6 @@
 import 'package:codeit_student_portal/bindings/cert_controller_bindings.dart';
-//import 'package:codeit_student_portal/view/certificate_page.dart';
-import 'package:codeit_student_portal/view/support_page.dart';
-import 'package:codeit_student_portal/view/receipt_details_page.dart';
+//import 'package:codeit_student_portal/view/certificate_page_api.dart';
+import 'package:codeit_student_portal/view/receipt_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,9 +19,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.white)),
       initialBinding: CertControllerBindings(),
-      // home: CertificatePage(),
-      home: SupportPage(),
-      //home: ReceiptDetailsPage(),
+      // home: CertificatePageApi(),
+      //home: SupportPage(),
+      home: ReceiptPage(),
     );
   }
 }

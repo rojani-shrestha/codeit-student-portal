@@ -126,10 +126,11 @@ class ReceiptDetailsPage extends StatelessWidget {
                 ),
                 Divider(),
                 SizedBox(
-                  width: 390,
-                  height: 170,
+                  // width: 390,
+                  // height: 170,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    // padding: const EdgeInsets.only(left: 20),
+                    padding: const EdgeInsets.all(10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -140,7 +141,7 @@ class ReceiptDetailsPage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Gap(24),
+                        Gap(15),
                         Row(
                           children: [
                             Text("Full Name:"),
@@ -175,8 +176,8 @@ class ReceiptDetailsPage extends StatelessWidget {
                 ),
                 Gap(23),
                 SizedBox(
-                  height: 220,
-                  width: 390,
+                  // height: 220,
+                  // width: 390,
                   child: Padding(
                     padding: const EdgeInsets.all(10),
                     child: Column(
@@ -189,7 +190,7 @@ class ReceiptDetailsPage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Gap(23),
+                        Gap(15),
                         Card(
                           elevation: 4,
                           surfaceTintColor:
@@ -211,6 +212,8 @@ class ReceiptDetailsPage extends StatelessWidget {
                                 ),
                                 Divider(),
                                 Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       "Amount Paid:",
@@ -219,7 +222,7 @@ class ReceiptDetailsPage extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    Gap(150),
+
                                     Text(
                                       "Rs.1999/-",
                                       style: TextStyle(
