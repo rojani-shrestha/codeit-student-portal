@@ -14,11 +14,34 @@ class CertificatePageApi extends GetView<CertificateControllerApi> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "My Certificate",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.orange.shade100,
+        title: Image.asset("assets/image/codeit.png", height: 33, width: 137),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 5,
+              right: 10,
+              bottom: 5,
+              left: 10,
+            ),
+            child: Container(
+              height: 30,
+              width: 87,
+              decoration: BoxDecoration(
+                color: Color(0xFFFF6900),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.person, color: Colors.white),
+                  Gap(5),
+                  Text("Name", style: TextStyle(color: Colors.white)),
+                ],
+              ),
+            ),
+          ),
+        ],
+        // backgroundColor: Colors.orange.shade100,
       ),
 
       body: Obx(() {
@@ -28,6 +51,52 @@ class CertificatePageApi extends GetView<CertificateControllerApi> {
           return SingleChildScrollView(
             child: Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          
+                        },
+                        child: Row(
+                          children: [
+                            Icon(Icons.home),
+                            Gap(3.5),
+                            Text("Home", style: TextStyle(fontSize: 15)),
+                          ],
+                        ),
+                      ),
+                      Gap(7),
+                      Text(">", style: TextStyle(fontSize: 20)),
+                      Gap(7),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Text(
+                          "Certificate",
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Gap(30),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "My Certificate",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Gap(23),
                 ListView.builder(
                   itemCount:
                       certificateController.certificate.value.data.length,
@@ -115,7 +184,7 @@ class CertificatePageApi extends GetView<CertificateControllerApi> {
                                   onPressed: certificateDownloader.isSend.value
                                       ? null
                                       : () async {
-                                          print("certificate");
+                                         // print("certificate");
                                           await certificateDownloader
                                               .downloadCertificate(
                                                 cert.certificateId ?? 0,
@@ -174,6 +243,7 @@ class CertificatePageApi extends GetView<CertificateControllerApi> {
           );
         }
       }),
+      drawer: Drawer(),
     );
   }
 }
