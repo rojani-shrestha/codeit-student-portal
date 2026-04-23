@@ -15,7 +15,11 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+<<<<<<< HEAD
                BuildableName = "studentportal.app"
+=======
+               BuildableName = "codeit_student_portal.app"
+>>>>>>> a90ca2e9cf3ea01e3a6cf6f99a61391bb665a7d5
                BlueprintName = "Runner"
                ReferencedContainer = "container:Runner.xcodeproj">
             </BuildableReference>
@@ -31,7 +35,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+<<<<<<< HEAD
             BuildableName = "studentportal.app"
+=======
+            BuildableName = "codeit_student_portal.app"
+>>>>>>> a90ca2e9cf3ea01e3a6cf6f99a61391bb665a7d5
             BlueprintName = "Runner"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
@@ -66,7 +74,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+<<<<<<< HEAD
             BuildableName = "studentportal.app"
+=======
+            BuildableName = "codeit_student_portal.app"
+>>>>>>> a90ca2e9cf3ea01e3a6cf6f99a61391bb665a7d5
             BlueprintName = "Runner"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
@@ -83,7 +95,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+<<<<<<< HEAD
             BuildableName = "studentportal.app"
+=======
+            BuildableName = "codeit_student_portal.app"
+>>>>>>> a90ca2e9cf3ea01e3a6cf6f99a61391bb665a7d5
             BlueprintName = "Runner"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>

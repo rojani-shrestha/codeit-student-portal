@@ -6,7 +6,11 @@ plugins {
 }
 
 android {
+<<<<<<< HEAD
     namespace = "com.example.studentportal"
+=======
+    namespace = "com.example.codeit_student_portal"
+>>>>>>> a90ca2e9cf3ea01e3a6cf6f99a61391bb665a7d5
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,7 +25,11 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+<<<<<<< HEAD
         applicationId = "com.example.studentportal"
+=======
+        applicationId = "com.example.codeit_student_portal"
+>>>>>>> a90ca2e9cf3ea01e3a6cf6f99a61391bb665a7d5
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

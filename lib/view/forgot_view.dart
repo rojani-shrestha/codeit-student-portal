@@ -25,18 +25,18 @@ class _ForgotViewState extends State<ForgotView> {
               
               Image.asset("assets/image/Screenshot 2026-04-02 190631.png"),
               
-              Text("Forgot Password?",style: TextStyle(
+              Text("Password recovery",style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold
               ),),
               
-              Text("Enter your email address and we'll send you a link to reset your password."),
+              Text("enter your email to recover your password "),
               SizedBox(
                     height: 30,
                   ),
                 Row(
                   children: [
-                    Text("Email address"),
+                    Text("Enter your  registered email address"),
                     Text("*",style: TextStyle(
                       color: Colors.red
                             
@@ -71,14 +71,14 @@ class _ForgotViewState extends State<ForgotView> {
                             backgroundColor: Colors.deepOrange
                           ),
                           onPressed: (){}, 
-                          child: Text("Send Reset Link",
+                          child: Text("Send OTP",
                           style: TextStyle(
                             color: Colors.white),)),
                        ),
                        SizedBox(
                   height: 20,
                 ),
-                Text("© 2026 Code IT. All rights reserved. ")
+                Text("Back to login ")
                   
                               
 
