@@ -8,7 +8,7 @@ class ReceiptService {
       options: Options(
         headers: {
           "Authorization":
-              "Bearer 6276|pwaToI5Pp56qidCX8ifdYNuhB0ZLqxYni4yBQnhm631c6994", //Bearer is important
+              "Bearer 6410|oe3pRNkKEi9FEym0ORSJinFLhcVGLnDisLIHpFwoa4730c0c", //Bearer is important
         },
       ),
     );

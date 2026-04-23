@@ -6,7 +6,7 @@ class CertificateService {
     var response = await DioConnector.dio.get("certificates",
     options: Options(
       headers: {
-        "Authorization": "Bearer 6245|bp1KxXes1VKVAuFK9vrIrCKtdb4TPzdOK2FjzTPN916369dc"
+        "Authorization": "Bearer 6410|oe3pRNkKEi9FEym0ORSJinFLhcVGLnDisLIHpFwoa4730c0c"
       }
     )
     );

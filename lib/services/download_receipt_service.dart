@@ -1,14 +1,14 @@
 import 'package:codeit_student_portal/utils/dio_connector.dart';
 import 'package:dio/dio.dart';
 
-class SupportService {
-  static Future<Response> fetchSupport() async {
+class DownloadReceiptService {
+  static Future<Response> getReceipt(int receiptId) async {
     var response = await DioConnector.dio.get(
-      "show-ticket",
+      "download-receipt/$receiptId",
       options: Options(
         headers: {
           "Authorization":
-              "Bearer 6304|Yqqx2M29IMADGjg31RPXDlnAwYZHf9pFLLYcUd3862fb60da",
+              "Bearer 6524|X1h384KoNHrRFu43wVdBYvZ1PyvphURkjGn3WBog99aae426",
         },
       ),
     );

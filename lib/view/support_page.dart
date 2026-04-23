@@ -1,4 +1,5 @@
 import 'package:codeit_student_portal/view/create_ticket_page.dart';
+import 'package:codeit_student_portal/view/ticket_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -6,278 +7,180 @@ import 'package:get/get.dart';
 class SupportPage extends StatelessWidget {
   const SupportPage({super.key});
 
+  void _openCreateTicket() {
+    Get.to(CreateTicketPage());
+  }
+
+  Widget _buildCard({
+    required Color circleColor,
+    required Color iconColor,
+    required IconData icon,
+    required String title,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        elevation: 2,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: CircleAvatar(
+                backgroundColor: circleColor,
+                foregroundColor: iconColor,
+                radius: 30,
+                child: Icon(icon, size: 40, color: iconColor),
+              ),
+            ),
+            const Gap(30),
+            Text(
+              title,
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const Text(
+              "Questions about courses, payments, schedule,",
+              style: TextStyle(fontSize: 14),
+            ),
+            const Text(
+              "enrollment or other general inquiries.",
+              style: TextStyle(fontSize: 14),
+            ),
+            const Gap(29),
+            const Divider(),
+            GestureDetector(
+              onTap: _openCreateTicket,
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Create Ticket",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFFFF6900),
+                    ),
+                  ),
+                  Icon(Icons.arrow_forward_sharp, color: Color(0xFFFF6900)),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Support Screen"),
-      backgroundColor: Colors.orange.shade100,),
+      appBar: AppBar(
+        title: Image.asset("assets/image/codeit.png", height: 33, width: 137),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Container(
+              height: 30,
+              width: 87,
+              decoration: BoxDecoration(
+                color: const Color(0xFFFF6900),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.person, color: Colors.white),
+                  Gap(5),
+                  Text("Name", style: TextStyle(color: Colors.white)),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Row(
+                      children: [
+                        Icon(Icons.home),
+                        Gap(3.5),
+                        Text("Home", style: TextStyle(fontSize: 15)),
+                      ],
+                    ),
+                  ),
+                  const Gap(7),
+                  const Text(">", style: TextStyle(fontSize: 20)),
+                  const Gap(7),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      "Support",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Text(
               "How can we help you today?",
               style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
             ),
-            Text("Choose the category that best matches"),
-            Text("your question and we'll get back to you"),
-            Text("quickly."),
+            const Text("Choose the category that best matches"),
+            const Text("your question and we'll get back to you"),
+            const Text("quickly."),
 
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 2,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.blue.shade100,
-                        foregroundColor: Colors.blue.shade600,
-                        radius: 30,
-                        child: Icon(Icons.help, size: 40),
-                      ),
-                    ),
-                    Gap(30),
-                    Text(
-                      "General Support",
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Questions about courses, payments, schedule,",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Text(
-                      "enrollment or other general inquiries.",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Gap(29),
-                    Divider(),
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(CreateTicketPage());
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Create Ticket",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFFFF6900),
-                            ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_sharp,
-                            color: Color(0xFFFF6900),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+            _buildCard(
+              circleColor: Colors.blue.shade100,
+              iconColor: Colors.blue.shade600,
+              icon: Icons.help,
+              title: "General Support",
             ),
-            Gap(23),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 2,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.red.shade100,
-                        foregroundColor: Colors.red,
-                        radius: 30,
-                        child: Icon(Icons.healing_sharp, size: 40),
-                      ),
-                    ),
-                    Gap(30),
-                    Text(
-                      "Technical Support",
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Questions about courses, payments, schedule,",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Text(
-                      "enrollment or other general inquiries.",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Gap(29),
-                    Divider(),
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(CreateTicketPage());
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Create Ticket",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFFFF6900),
-                            ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_sharp,
-                            color: Color(0xFFFF6900),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
+            const Gap(23),
+
+            _buildCard(
+              circleColor: Colors.red.shade100,
+              iconColor: Colors.red,
+              icon: Icons.healing_sharp,
+              title: "Technical Support",
             ),
-            Gap(23),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 2,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.green.shade200,
-                        //foregroundColor: Colors.green,
-                        radius: 30,
-                        child: Icon(
-                          Icons.school,
-                          color: Colors.green.shade700,
-                          size: 40,
-                        ),
-                      ),
-                    ),
-                    Gap(30),
-                    Text(
-                      "Counseling Support",
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Questions about courses, payments, schedule,",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Text(
-                      "enrollment or other general inquiries.",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Gap(29),
-                    Divider(),
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(CreateTicketPage());
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Create Ticket",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFFFF6900),
-                            ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_sharp,
-                            color: Color(0xFFFF6900),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
+            const Gap(23),
+
+            _buildCard(
+              circleColor: Colors.green.shade200,
+              iconColor: Colors.green.shade700,
+              icon: Icons.school,
+              title: "Counseling Support",
             ),
-            Gap(23),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 2,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.purple.shade200,
-                        //foregroundColor: Colors.white,
-                        radius: 30,
-                        child: Icon(
-                          Icons.groups_outlined,
-                          color: Colors.deepPurple,
-                          size: 40,
-                        ),
-                      ),
-                    ),
-                    Gap(30),
-                    Text(
-                      "Internship Support",
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Questions about courses, payments, schedule,",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Text(
-                      "enrollment or other general inquiries.",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Gap(29),
-                    Divider(),
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(CreateTicketPage());
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Create Ticket",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFFFF6900),
-                            ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_sharp,
-                            color: Color(0xFFFF6900),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
+            const Gap(23),
+
+            _buildCard(
+              circleColor: Colors.purple.shade200,
+              iconColor: Colors.deepPurple,
+              icon: Icons.groups_outlined,
+              title: "Internship Support",
             ),
-            Gap(50),
+
+            const Gap(50),
+
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange.shade700,
                 ),
-                onPressed: () {},
-                child: Row(
+                onPressed: () {
+                  Get.to(TicketListPage());
+                },
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.list_alt_rounded, color: Colors.white),
@@ -297,6 +200,7 @@ class SupportPage extends StatelessWidget {
           ],
         ),
       ),
+      drawer: const Drawer(),
     );
   }
 }

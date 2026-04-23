@@ -13,16 +13,85 @@ class ReceiptPage extends GetView<ReceiptController> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Receipt"),
-        backgroundColor: Colors.orange.shade100,
+        title: Image.asset("assets/image/codeit.png", height: 33, width: 137),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 5,
+              right: 10,
+              bottom: 5,
+              left: 10,
+            ),
+            child: Container(
+              height: 30,
+              width: 87,
+              decoration: BoxDecoration(
+                color: Color(0xFFFF6900),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.person, color: Colors.white),
+                  Gap(5),
+                  Text("Name", style: TextStyle(color: Colors.white)),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
       body: Obx(() {
-        if (receiptControl.isLoading.value == true) {
+        if (receiptControl.isLoading.value) {
           return Center(child: CircularProgressIndicator());
         } else {
           return SingleChildScrollView(
             child: Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {},
+                        child: Row(
+                          children: [
+                            Icon(Icons.home),
+                            Gap(3.5),
+                            Text("Home", style: TextStyle(fontSize: 15)),
+                          ],
+                        ),
+                      ),
+                      Gap(7),
+                      Text(">", style: TextStyle(fontSize: 20)),
+                      Gap(7),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Text(
+                          "Payment Receipts",
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Gap(30),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "My Receipts",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Gap(23),
                 ListView.builder(
                   itemCount: receiptControl.receipt.value.data.length,
                   shrinkWrap: true,
@@ -33,7 +102,7 @@ class ReceiptPage extends GetView<ReceiptController> {
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: () {
-                          Get.to(ReceiptDetailsPage());
+                          Get.off(ReceiptDetailsPage(slip: slip));
                         },
                         child: Card(
                           elevation: 3,
@@ -62,11 +131,13 @@ class ReceiptPage extends GetView<ReceiptController> {
                                           Text(
                                             "Amount: ${slip.amount}",
                                             style: TextStyle(fontSize: 14),
+                                            overflow: TextOverflow.ellipsis,
                                           ),
                                           Gap(5),
                                           Text(
                                             "| Date: ${slip.enrolledDate}",
                                             style: TextStyle(fontSize: 14),
+                                            overflow: TextOverflow.ellipsis,
                                           ),
                                         ],
                                       ),
@@ -86,6 +157,7 @@ class ReceiptPage extends GetView<ReceiptController> {
           );
         }
       }),
+      drawer: Drawer(),
     );
   }
 }

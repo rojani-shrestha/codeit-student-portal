@@ -1,27 +1,13 @@
-// <<<<<<< HEAD
-import 'package:codeit_student_portal/view/createpage_view.dart';
-import 'package:codeit_student_portal/view/forgot_view.dart';
-import 'package:codeit_student_portal/view/login_view.dart';
-import 'package:codeit_student_portal/view/otp_view.dart';
-import 'package:codeit_student_portal/view/passchange_view.dart';
-import 'package:codeit_student_portal/view/receipt_details_page.dart';
-import 'package:codeit_student_portal/view/receipt_page.dart';
-import 'package:codeit_student_portal/view/reset_view.dart';
-import 'package:flutter/material.dart';
-// import 'package:studentportal/view/createpage_view.dart';
-// import 'package:studentportal/view/forgot_view.dart';
-// import 'package:studentportal/view/login_view.dart';
-// import 'package:studentportal/view/createpage_view.dart';
-// import 'package:studentportal/view/forgot_view.dart';
-// import 'package:studentportal/view/loggin_view.dart';
-// import 'package:studentportal/view/login_view.dart';
 
-
-// =======
 import 'package:codeit_student_portal/bindings/cert_controller_bindings.dart';
-import 'package:codeit_student_portal/view/certificate_page_api.dart';
-// import 'package:codeit_student_portal/view/receipt_page.dart';
-// import 'package:flutter/material.dart';
+import 'package:codeit_student_portal/view/login_view.dart';
+//import 'package:codeit_student_portal/view/support_page.dart';
+//import 'package:codeit_student_portal/view/certificate_page_api.dart';
+
+import 'package:flutter/material.dart';
+
+
+
 import 'package:get/get.dart';
 // >>>>>>> a90ca2e9cf3ea01e3a6cf6f99a61391bb665a7d5
 
@@ -67,16 +53,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.white)),
       initialBinding: CertControllerBindings(),
+
       // home: CertificatePageApi(),
       // home: SupportPage(),
       // home: CreatepageView(),
       // home: ReceiptDetailsPage()
-      // home: LoginView(),
+      home: LoginView(),
       // home: OtpView(),
-      home: passchange()
-      
-     
-    //  home: ResetView(),
+      // home: passchange()
+      //home: CertificatePageApi(),
+      //home: SupportPage(),
       // home: ReceiptPage(),
     );
   }
