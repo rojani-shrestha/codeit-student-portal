@@ -90,12 +90,21 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
+<<<<<<< HEAD
+            VALUE "FileDescription", "studentportal" "\0"
+            VALUE "FileVersion", VERSION_AS_STRING "\0"
+            VALUE "InternalName", "studentportal" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
+            VALUE "OriginalFilename", "studentportal.exe" "\0"
+            VALUE "ProductName", "studentportal" "\0"
+=======
             VALUE "FileDescription", "codeit_student_portal" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "codeit_student_portal" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "codeit_student_portal.exe" "\0"
             VALUE "ProductName", "codeit_student_portal" "\0"
+>>>>>>> a90ca2e9cf3ea01e3a6cf6f99a61391bb665a7d5
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

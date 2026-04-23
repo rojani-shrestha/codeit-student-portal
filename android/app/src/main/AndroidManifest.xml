@@ -1,6 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
+<<<<<<< HEAD
+        android:label="studentportal"
+=======
         android:label="codeit_student_portal"
+>>>>>>> a90ca2e9cf3ea01e3a6cf6f99a61391bb665a7d5
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
