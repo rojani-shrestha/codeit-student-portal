@@ -1,5 +1,6 @@
 import 'package:codeit_student_portal/view/create_ticket_page.dart';
 import 'package:codeit_student_portal/view/ticket_list_page.dart';
+import 'package:codeit_student_portal/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -105,7 +106,9 @@ class SupportPage extends StatelessWidget {
               child: Row(
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.back();
+                    },
                     child: const Row(
                       children: [
                         Icon(Icons.home),
@@ -178,7 +181,7 @@ class SupportPage extends StatelessWidget {
                   backgroundColor: Colors.orange.shade700,
                 ),
                 onPressed: () {
-                  Get.to(TicketListPage());
+                  Get.to(() =>TicketListPage());
                 },
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -200,7 +203,7 @@ class SupportPage extends StatelessWidget {
           ],
         ),
       ),
-      drawer: const Drawer(),
+      drawer: DrawerPage(),
     );
   }
 }

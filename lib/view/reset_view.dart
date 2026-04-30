@@ -25,32 +25,34 @@ class _ResetViewState extends State<ResetView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
-                      child: Image.asset("assets/image/Screenshot 2026-04-02 190631.png"),
+                      child: Image.asset(
+                        "assets/image/Screenshot 2026-04-02 190631.png",
+                      ),
                     ),
-                
+
                     Center(
                       child: Text(
                         "Reset your password",
-                        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                
-                    Center(child: Text("please enter your new password")),
-                    
-                    
-                
+
+                    Center(child: Text("Please enter your new password")),
+
                     SizedBox(height: 20),
-                
+
                     Row(
                       children: [
                         Text("New password"),
                         Text("*", style: TextStyle(color: Colors.red)),
                       ],
                     ),
-                
+
                     SizedBox(height: 5),
-                
-                    
+
                     TextField(
                       obscureText: ishidden,
                       decoration: InputDecoration(
@@ -70,23 +72,20 @@ class _ResetViewState extends State<ResetView> {
                         ),
                       ),
                     ),
-                
+
                     // SizedBox(height: 10),
-                
                     SizedBox(height: 10),
-                
+
                     Row(
                       children: [
                         Text("Confirm password"),
                         Text("*", style: TextStyle(color: Colors.red)),
                       ],
                     ),
-                
+
                     // SizedBox(height: 5),
-                
                     SizedBox(height: 10),
-                
-                   
+
                     TextField(
                       obscureText: ishidden,
                       decoration: InputDecoration(
@@ -107,19 +106,17 @@ class _ResetViewState extends State<ResetView> {
                       ),
                     ),
                     SizedBox(height: 20),
-                
-                 Text("Your password must contain"),
-                 Row(
-                   children: [
-                     Icon(Icons.check_circle,color: Colors.deepOrange, ),
-                     Text("At least 6 character")
-                   ],
-                 ),
-                
-                    
-                
+
+                    Text("Your password must contain"),
+                    Row(
+                      children: [
+                        Icon(Icons.check_circle, color: Colors.deepOrange),
+                        Text("At least 6 character"),
+                      ],
+                    ),
+
                     SizedBox(height: 30),
-                
+
                     SizedBox(
                       height: 45,
                       width: double.infinity,
@@ -128,15 +125,20 @@ class _ResetViewState extends State<ResetView> {
                           backgroundColor: Colors.deepOrange,
                         ),
                         onPressed: () {},
-                        child: Text("Save", style: TextStyle(color: Colors.white)),
+                        child: Text(
+                          "Save",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
-                
+
                     SizedBox(height: 20),
-                
+
                     Center(
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         child: Text(
                           "Cancel",
                           style: TextStyle(
