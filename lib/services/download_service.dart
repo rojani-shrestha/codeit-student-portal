@@ -2,9 +2,9 @@ import 'package:codeit_student_portal/utils/dio_connector.dart';
 import 'package:dio/dio.dart';
 
 class DownloadService {
-  static Future<Response> downloading(int certificateId) async {
+  static Future<Response> downloading(int certicateId) async {
     var response = await DioConnector.dio.get(
-      "sendcertificate/$certificateId",
+      "sendcertificate/$certicateId",
       options: Options(
         headers: {
           "Authorization":

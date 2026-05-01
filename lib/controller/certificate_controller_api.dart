@@ -3,7 +3,7 @@ import 'package:codeit_student_portal/services/certificate_service.dart';
 import 'package:get/get.dart';
 
 class CertificateControllerApi extends GetxController {
-  var certificate = CertificateModel(success: false, data: []).obs;
+  var certificate = CertificateModel(sucess: false, data: []).obs;
   var isLoading = false.obs;
 
   Future getCertificate() async {

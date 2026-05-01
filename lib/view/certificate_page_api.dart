@@ -1,5 +1,6 @@
 import 'package:codeit_student_portal/controller/certificate_controller_api.dart';
 import 'package:codeit_student_portal/controller/download_controller.dart';
+import 'package:codeit_student_portal/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -57,7 +58,7 @@ class CertificatePageApi extends GetView<CertificateControllerApi> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          
+                          Get.back();
                         },
                         child: Row(
                           children: [
@@ -184,15 +185,15 @@ class CertificatePageApi extends GetView<CertificateControllerApi> {
                                   onPressed: certificateDownloader.isSend.value
                                       ? null
                                       : () async {
-                                         // print("certificate");
+                                          // print("certificate");
                                           await certificateDownloader
                                               .downloadCertificate(
-                                                cert.certificateId ?? 0,
+                                                cert.certicateId ?? 0,
                                               );
                                           if (certificateDownloader
                                               .download
                                               .value
-                                              .success!) {
+                                              .sucess!) {
                                             Get.snackbar(
                                               "Success",
                                               "Certificate sent to your email",
@@ -243,7 +244,7 @@ class CertificatePageApi extends GetView<CertificateControllerApi> {
           );
         }
       }),
-      drawer: Drawer(),
+      drawer: DrawerPage(),
     );
   }
 }
