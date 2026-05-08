@@ -1,6 +1,7 @@
 import 'package:codeit_student_portal/view/certificate_page_api.dart';
 import 'package:codeit_student_portal/view/dashboard_view.dart';
 import 'package:codeit_student_portal/view/login_view.dart';
+import 'package:codeit_student_portal/view/my_course_page.dart';
 import 'package:codeit_student_portal/view/receipt_page.dart';
 import 'package:codeit_student_portal/view/suggestion_page.dart';
 import 'package:codeit_student_portal/view/support_page.dart';
@@ -15,7 +16,7 @@ class DrawerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.orange.shade400,
+      backgroundColor: Color(0xFFFF6900),
       child: Column(
         children: [
           DrawerHeader(
@@ -60,6 +61,16 @@ class DrawerPage extends StatelessWidget {
                   ),
                   onTap: () {
                     Get.to(DashboardView());
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.description_sharp, color: Colors.white),
+                  title: Text(
+                    "My Courses",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () {
+                    Get.to(() => MyCoursePage());
                   },
                 ),
                 ListTile(
