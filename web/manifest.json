@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
+    "name": "studentportal",
+    "short_name": "studentportal",
+=======
     "name": "codeit_student_portal",
     "short_name": "codeit_student_portal",
+>>>>>>> a90ca2e9cf3ea01e3a6cf6f99a61391bb665a7d5
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -182,7 +182,7 @@ class SupportPage extends StatelessWidget {
                   backgroundColor: Colors.orange.shade700,
                 ),
                 onPressed: () {
-                  Get.to(TicketListPage());
+                  Get.to(() =>TicketListPage());
                 },
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,

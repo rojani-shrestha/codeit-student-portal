@@ -7,8 +7,6 @@ import 'package:codeit_student_portal/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-//import 'package:get/get.dart';
-//import 'package:get/state_manager.dart';
 
 class ReceiptDetailsPage extends GetView<DownloadReceiptController> {
   final Datum slip;

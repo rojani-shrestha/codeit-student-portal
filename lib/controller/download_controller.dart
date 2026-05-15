@@ -3,7 +3,7 @@ import 'package:codeit_student_portal/services/download_service.dart';
 import 'package:get/get.dart';
 
 class DownloadController extends GetxController {
-  var download =  DownloadModel(success: false, message: "Hello").obs;
+  var download =  DownloadModel(sucess: false, message: "Hello").obs;
   var isSend = false.obs;
 
   Future downloadCertificate(int certificateId) async {

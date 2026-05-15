@@ -50,8 +50,8 @@ class _TicketListPageState extends State<TicketListPage> {
             ),
           ),
         ],
-        backgroundColor: Colors.orangeAccent.shade200,
-        
+
+        //backgroundColor: Colors.orangeAccent.shade200,
       ),
       body: Obx(() {
         if (ticketController.isLoading.value) {

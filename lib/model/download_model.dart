@@ -1,15 +1,15 @@
 class DownloadModel {
     DownloadModel({
-        required this.success,
+        required this.sucess,
         required this.message,
     });
 
-    final bool? success;
+    final bool? sucess;
     final String? message;
 
     factory DownloadModel.fromJson(Map<String, dynamic> json){ 
         return DownloadModel(
-            success: json["success"],
+            sucess: json["sucess"],
             message: json["message"],
         );
     }

@@ -106,7 +106,7 @@ class ReceiptPage extends GetView<ReceiptController> {
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: () {
-                          Get.off(ReceiptDetailsPage(slip: slip));
+                          Get.off(() =>ReceiptDetailsPage(slip: slip));
                         },
                         child: Card(
                           elevation: 3,
