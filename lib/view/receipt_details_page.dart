@@ -1,7 +1,9 @@
 //import 'package:codeit_student_portal/controller/receipt_controller.dart';
 import 'package:codeit_student_portal/controller/download_receipt_controller.dart';
 import 'package:codeit_student_portal/model/receipt_model.dart';
+import 'package:codeit_student_portal/view/dashboard_view.dart';
 import 'package:codeit_student_portal/view/receipt_page.dart';
+import 'package:codeit_student_portal/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -18,14 +20,12 @@ class ReceiptDetailsPage extends GetView<DownloadReceiptController> {
     var isControlPage = true.obs;
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          "Payment Receipt Page",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+        //automaticallyImplyLeading: false,
+        title: Image.asset("assets/image/codeit.png", height: 33, width: 137),
+        centerTitle: true,
         actions: [
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.only(right: 15),
             child: Obx(
               () => ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -71,7 +71,7 @@ class ReceiptDetailsPage extends GetView<DownloadReceiptController> {
             ),
           ),
         ],
-        backgroundColor: Colors.orange.shade100,
+        // backgroundColor: Colors.orange.shade100,
       ),
       body: Obx(
         () => SingleChildScrollView(
@@ -86,7 +86,9 @@ class ReceiptDetailsPage extends GetView<DownloadReceiptController> {
                     child: Row(
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(() => DashboardView());
+                          },
                           child: Row(
                             children: [
                               Icon(Icons.home),
@@ -358,6 +360,7 @@ class ReceiptDetailsPage extends GetView<DownloadReceiptController> {
           ),
         ),
       ),
+      drawer: DrawerPage(),
     );
   }
 }

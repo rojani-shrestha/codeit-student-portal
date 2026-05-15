@@ -1,6 +1,8 @@
 //import 'package:codeit_student_portal/controller/support_controller.dart';
 import 'package:codeit_student_portal/controller/post_ticket_controller.dart';
+import 'package:codeit_student_portal/view/dashboard_view.dart';
 import 'package:codeit_student_portal/view/support_page.dart';
+import 'package:codeit_student_portal/widgets/drawer_page.dart';
 //import 'package:codeit_student_portal/controller/ticket_controller.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/widgets.dart';
@@ -25,14 +27,14 @@ class _CreateTicketPageState extends State<CreateTicketPage> {
   List<String> supportTicket = [
     "General support",
     "Technical support",
-    "Counselling support",
+    "Counseling support",
     "Internship support",
   ];
 
   Map<String, String> categoryMap = {
     "General support": "general",
     "Technical support": "technical",
-    "Counselling support": "counselling",
+    "Counseling support": "counseling",
     "Internship support": "internship",
   };
 
@@ -81,7 +83,9 @@ class _CreateTicketPageState extends State<CreateTicketPage> {
               child: Row(
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => DashboardView());
+                    },
                     child: Row(
                       children: [
                         Icon(Icons.home),
@@ -349,7 +353,7 @@ class _CreateTicketPageState extends State<CreateTicketPage> {
           ],
         ),
       ),
-      drawer: Drawer(),
+      drawer: DrawerPage(),
     );
   }
 }
