@@ -1,7 +1,8 @@
 import 'package:codeit_student_portal/controller/my_courses_controller.dart';
 import 'package:codeit_student_portal/view/class_video.dart';
+import 'package:codeit_student_portal/view/dashboard_view.dart';
 //import 'package:codeit_student_portal/controller/my_courses_controller.dart';
-import 'package:codeit_student_portal/widgets/drawer.dart';
+import 'package:codeit_student_portal/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -54,7 +55,7 @@ class MyCoursePage extends GetView<MyCoursesController> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Get.back();
+                        Get.to(() => DashboardView());
                       },
                       child: Row(
                         children: [
@@ -110,9 +111,12 @@ class MyCoursePage extends GetView<MyCoursesController> {
                                 topLeft: Radius.circular(10),
                                 topRight: Radius.circular(10),
                               ),
-                              color: Colors.grey,
+                              //color: Colors.grey,
                             ),
-                            // child: Image.network("${courseMine.courseImage}"),
+                            child: Image.asset(
+                              "assets/image/flutter.jpg",
+                              fit: BoxFit.cover,
+                            ),
                           ),
                           Material(
                             elevation: 4,

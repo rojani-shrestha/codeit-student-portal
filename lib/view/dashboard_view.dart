@@ -1,10 +1,11 @@
 import 'package:codeit_student_portal/controller/certificate_controller_api.dart';
+import 'package:codeit_student_portal/controller/googlelink_controller.dart';
 import 'package:codeit_student_portal/controller/my_courses_controller.dart';
 import 'package:codeit_student_portal/controller/receipt_controller.dart';
 import 'package:codeit_student_portal/view/certificate_page_api.dart';
 import 'package:codeit_student_portal/view/my_course_page.dart';
 import 'package:codeit_student_portal/view/receipt_page.dart';
-import 'package:codeit_student_portal/widgets/drawer.dart';
+import 'package:codeit_student_portal/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -12,10 +13,12 @@ import 'package:get/get.dart';
 class DashboardView extends GetView<MyCoursesController> {
   final receiptControl = Get.find<ReceiptController>();
   final certificateControl = Get.find<CertificateControllerApi>();
+  final linkControl = Get.find<GooglelinkController>();
   DashboardView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var courseGet = controller.myCourse.value.data.first;
     return Scaffold(
       appBar: AppBar(
         title: Image.asset("assets/image/codeit.png", height: 33, width: 137),
@@ -55,21 +58,71 @@ class DashboardView extends GetView<MyCoursesController> {
           child: Column(
             children: [
               Text(
-                "Welcome back, Name!",
+                "Welcome back, Ayush",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               Text("Here's your learning snapshot today."),
               Gap(14),
 
-              // Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: Row(children: [Icon(Icons.home), Gap(3), Text("Home")]),
-              // ),
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    elevation: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            courseGet.courseName ?? '',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            courseGet.mentorName ?? '',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            // "Class Time:${courseGet.duration ?? ''}",
+                            "Class Time: 8:00 - 9:30 pm",
+                            style: TextStyle(fontSize: 12),
+                          ),
+                          Gap(5),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              backgroundColor: Colors.greenAccent.shade400,
+                            ),
+                            onPressed: () {
+                              linkControl.openLink();
+                            },
+
+                            child: Text(
+                              "Join Live Class",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    Get.to(() => MyCoursePage());
+                    // Get.to(() => MyCoursePage());
                   },
                   child: Card(
                     elevation: 3,
@@ -110,7 +163,7 @@ class DashboardView extends GetView<MyCoursesController> {
                                 ),
                               ),
                               Text(
-                                "1",
+                                "0",
                                 style: TextStyle(
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold,
@@ -305,22 +358,29 @@ class DashboardView extends GetView<MyCoursesController> {
                                           borderRadius: BorderRadius.circular(
                                             10,
                                           ),
-                                          child: Image.network(
-                                            courseMine.courseImage?.trim() ??
-                                                "",
-                                            height: 97,
-                                            width: 110,
+                                          child: Image.asset(
+                                            "assets/image/flutter.jpg",
                                             fit: BoxFit.cover,
-                                            errorBuilder:
-                                                (context, error, stackTrace) {
-                                                  return Icon(
-                                                    Icons.broken_image,
-                                                    size: 100,
-                                                  );
-                                                },
+                                            height: 60,
+                                            width: 60,
                                           ),
                                         ),
-                                        Gap(5),
+
+                                        // child: Image.network(
+                                        //   courseMine.courseImage?.trim() ??
+                                        //       "",
+                                        //   height: 97,
+                                        //   width: 110,
+                                        //   fit: BoxFit.cover,
+                                        //   errorBuilder:
+                                        //       (context, error, stackTrace) {
+                                        //         return Icon(
+                                        //           Icons.broken_image,
+                                        //           size: 100,
+                                        //         );
+                                        //       },
+                                        // ),
+                                        Gap(10),
                                         Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,

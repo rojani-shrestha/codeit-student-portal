@@ -8,7 +8,7 @@ class DownloadReceiptService {
       options: Options(
         headers: {
           "Authorization":
-              "Bearer 6524|X1h384KoNHrRFu43wVdBYvZ1PyvphURkjGn3WBog99aae426",
+              "Bearer 10155|PFZFtPA07GEhDAMWmGIWQNpO4ClCbGsw3kyTj1249674fe6d",
         },
       ),
     );

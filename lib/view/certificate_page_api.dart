@@ -1,6 +1,6 @@
 import 'package:codeit_student_portal/controller/certificate_controller_api.dart';
 import 'package:codeit_student_portal/controller/download_controller.dart';
-import 'package:codeit_student_portal/widgets/drawer.dart';
+import 'package:codeit_student_portal/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -188,12 +188,12 @@ class CertificatePageApi extends GetView<CertificateControllerApi> {
                                           // print("certificate");
                                           await certificateDownloader
                                               .downloadCertificate(
-                                                cert.certicateId ?? 0,
+                                                cert.certificateId ?? 0,
                                               );
                                           if (certificateDownloader
                                               .download
                                               .value
-                                              .sucess!) {
+                                              .success!) {
                                             Get.snackbar(
                                               "Success",
                                               "Certificate sent to your email",

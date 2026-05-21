@@ -1,6 +1,7 @@
 import 'package:codeit_student_portal/view/create_ticket_page.dart';
+import 'package:codeit_student_portal/view/dashboard_view.dart';
 import 'package:codeit_student_portal/view/ticket_list_page.dart';
-import 'package:codeit_student_portal/widgets/drawer.dart';
+import 'package:codeit_student_portal/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -107,7 +108,7 @@ class SupportPage extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.back();
+                      Get.to(() => DashboardView());
                     },
                     child: const Row(
                       children: [
@@ -203,7 +204,7 @@ class SupportPage extends StatelessWidget {
           ],
         ),
       ),
-      drawer: DrawerPage(),
+      drawer: const DrawerPage(),
     );
   }
 }

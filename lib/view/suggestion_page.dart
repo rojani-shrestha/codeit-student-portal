@@ -1,6 +1,6 @@
 import 'package:codeit_student_portal/controller/post_feedback_controller.dart';
 import 'package:codeit_student_portal/view/dashboard_view.dart';
-import 'package:codeit_student_portal/widgets/drawer.dart';
+import 'package:codeit_student_portal/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -68,7 +68,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Get.to(DashboardView());
+                            Get.to(() => DashboardView());
                           },
                           child: Row(
                             children: [
@@ -101,7 +101,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: 390,
-                      height: 383,
+                      // height: 383,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                       ),

@@ -1,7 +1,7 @@
 import 'package:codeit_student_portal/controller/receipt_controller.dart';
 import 'package:codeit_student_portal/view/dashboard_view.dart';
 import 'package:codeit_student_portal/view/receipt_details_page.dart';
-import 'package:codeit_student_portal/widgets/drawer.dart';
+import 'package:codeit_student_portal/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -56,7 +56,7 @@ class ReceiptPage extends GetView<ReceiptController> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Get.to(() =>DashboardView());
+                          Get.to(() => DashboardView());
                         },
                         child: Row(
                           children: [

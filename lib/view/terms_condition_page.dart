@@ -1,6 +1,6 @@
 import 'package:codeit_student_portal/controller/condition_controller.dart';
 import 'package:codeit_student_portal/view/dashboard_view.dart';
-import 'package:codeit_student_portal/widgets/drawer.dart';
+import 'package:codeit_student_portal/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:gap/gap.dart';
@@ -54,7 +54,7 @@ class TermsConditionPage extends GetView<ConditionController> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Get.to(() =>DashboardView());
+                              Get.to(() => DashboardView());
                             },
                             child: Row(
                               children: [

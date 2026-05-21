@@ -1,7 +1,5 @@
 //import 'package:codeit_student_portal/view/certificate_page_api.dart';
-import 'package:codeit_student_portal/view/createpage_view.dart';
 import 'package:codeit_student_portal/view/dashboard_view.dart';
-import 'package:codeit_student_portal/view/forgot_view.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -119,14 +117,14 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) {
-                                return ForgotView();
-                              },
-                            ),
-                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (_) {
+                          //       return ForgotView();
+                          //     },
+                          //   ),
+                          // );
                         },
 
                         child: Text(
@@ -155,7 +153,7 @@ class _LoginViewState extends State<LoginView> {
                         ),
 
                         onPressed: () {
-                          Get.to(() =>DashboardView());
+                          Get.to(() => DashboardView());
                         },
                         child: Text(
                           "Sign In",
@@ -175,14 +173,14 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) {
-                                return CreatepageView();
-                              },
-                            ),
-                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (_) {
+                          //       return CreatepageView();
+                          //     },
+                          //   ),
+                          // );
                         },
 
                         child: Text(

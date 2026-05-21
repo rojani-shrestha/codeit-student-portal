@@ -1,11 +1,10 @@
-import 'package:codeit_student_portal/model/condition_model.dart';
 import 'package:codeit_student_portal/utils/dio_connector.dart';
 import 'package:dio/dio.dart';
 
-class ConditionService {
-  static Future<ConditionModel> fetchTerms() async {
-    var response = await DioConnector.dio.get( 
-      "terms",
+class NotesService {
+  static Future<Response> fetchNotes(int enrollmentId) async {
+    var response = await DioConnector.dio.get(
+      "course-notes/$enrollmentId",
       options: Options(
         headers: {
           "Authorization":
@@ -13,6 +12,6 @@ class ConditionService {
         },
       ),
     );
-    return ConditionModel.fromJson(response.data);
+   return response;
   }
 }
