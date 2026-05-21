@@ -4,6 +4,7 @@ import 'package:codeit_student_portal/controller/coursemodel_controller.dart';
 import 'package:codeit_student_portal/controller/download_controller.dart';
 import 'package:codeit_student_portal/controller/download_receipt_controller.dart';
 import 'package:codeit_student_portal/controller/get_ticket_controller.dart';
+import 'package:codeit_student_portal/controller/googlelink_controller.dart';
 import 'package:codeit_student_portal/controller/my_courses_controller.dart';
 import 'package:codeit_student_portal/controller/notes_controller.dart';
 import 'package:codeit_student_portal/controller/post_feedback_controller.dart';
@@ -33,5 +34,6 @@ class CertControllerBindings extends Bindings {
     Get.put<CourseController>(CourseController(), permanent: true);
     Get.put<MyCoursesController>(MyCoursesController(), permanent: true);
     Get.put<NotesController>(NotesController(), permanent: true);
+    Get.put<GooglelinkController>(GooglelinkController(), permanent: true);
   }
 }

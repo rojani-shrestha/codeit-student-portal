@@ -1,10 +1,10 @@
 import 'package:codeit_student_portal/utils/dio_connector.dart';
 import 'package:dio/dio.dart';
 
-class NotesService {
-  static Future<Response> fetchNotes(int enrollmentId) async {
+class GooglelinkService {
+  static Future<Response> fetchLink() async {
     var response = await DioConnector.dio.get(
-      "course-notes/$enrollmentId",
+      "google-meet",
       options: Options(
         headers: {
           "Authorization":
@@ -12,6 +12,6 @@ class NotesService {
         },
       ),
     );
-   return response;
+    return response;
   }
 }

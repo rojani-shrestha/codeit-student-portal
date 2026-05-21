@@ -3,7 +3,7 @@ import 'package:codeit_student_portal/services/notes_service.dart';
 import 'package:get/get.dart';
 
 class NotesController extends GetxController {
-  var notes = NotesModel(sucess: false, notes: []).obs;
+  var resources = NotesModel(sucess: false, notes: []).obs;
   var isLoading = false.obs;
 
   @override
@@ -16,9 +16,10 @@ class NotesController extends GetxController {
     try {
       isLoading(true);
       var response = await NotesService.fetchNotes(enrollmentId);
+      print(response.data);
 
       if (response.statusCode == 200) {
-        notes.value = NotesModel.fromJson(response.data);
+        resources.value = NotesModel.fromJson(response.data);
       }
     } finally {
       isLoading(false);

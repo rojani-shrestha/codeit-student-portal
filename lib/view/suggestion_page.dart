@@ -101,7 +101,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: 390,
-                      height: 383,
+                      // height: 383,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                       ),

@@ -188,12 +188,12 @@ class CertificatePageApi extends GetView<CertificateControllerApi> {
                                           // print("certificate");
                                           await certificateDownloader
                                               .downloadCertificate(
-                                                cert.certicateId ?? 0,
+                                                cert.certificateId ?? 0,
                                               );
                                           if (certificateDownloader
                                               .download
                                               .value
-                                              .sucess!) {
+                                              .success!) {
                                             Get.snackbar(
                                               "Success",
                                               "Certificate sent to your email",

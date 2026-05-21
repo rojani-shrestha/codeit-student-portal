@@ -24,14 +24,16 @@ class _ClassVideoState extends State<ClassVideo> {
   bool showCourse = false;
   bool isPress = false;
   var notesControl = Get.find<NotesController>();
+  bool showNotes = false;
+  bool isShow = false;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   notesControl.getNotes(
-  //     classControl.courseControl.value.courseDetails?.enrollmentId ?? 0,
-  //   );
-  // }
+  @override
+  void initState() {
+    super.initState();
+    notesControl.getNotes(
+      classControl.courseControl.value.courseDetails?.enrollmentId ?? 0,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -143,15 +145,6 @@ class _ClassVideoState extends State<ClassVideo> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Image.asset("assets/image/flutter.jpg"),
-                    // child: Image.network(
-                    //   classControl
-                    //           .courseControl
-                    //           .value
-                    //           .courseDetails
-                    //           ?.course
-                    //           ?.image ??
-                    //       "",
-                    // ),
                   ),
 
                   // for course curriculum
@@ -238,32 +231,6 @@ class _ClassVideoState extends State<ClassVideo> {
                             ),
                           ),
                         ),
-                        ListView.builder(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          // itemCount: classControl
-                          //     .courseControl
-                          //     .value
-                          //     .courseDetails
-                          //     ?.videos
-                          //     .length,
-                          itemCount: notesControl.notes.value.notes.length,
-                          itemBuilder: (context, index) {
-                            var note = notesControl.notes.value.notes[index];
-                            // var control = classControl
-                            //     .courseControl
-                            //     .value
-                            //     .courseDetails?.course;
-                            return ListTile(
-                              leading: Icon(
-                                Icons.description,
-                                color: Color(0xFFFF6900),
-                              ),
-                              title: Text(note["title"] ?? ""),
-                              subtitle: Text(note["description"] ?? ""),
-                            );
-                          },
-                        ),
                       ],
                     ),
                   Gap(10),
@@ -276,7 +243,12 @@ class _ClassVideoState extends State<ClassVideo> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          setState(() {
+                            showNotes = !showNotes;
+                            isShow = showNotes;
+                          });
+                        },
                         child: Card(
                           elevation: 4,
                           child: Padding(
@@ -296,7 +268,11 @@ class _ClassVideoState extends State<ClassVideo> {
                                 ),
                                 Row(
                                   children: [
-                                    Icon(Icons.arrow_forward_ios_rounded),
+                                    Icon(
+                                      showNotes
+                                          ? Icons.keyboard_arrow_down_outlined
+                                          : Icons.arrow_forward_ios_rounded,
+                                    ),
                                   ],
                                 ),
                               ],
@@ -306,6 +282,117 @@ class _ClassVideoState extends State<ClassVideo> {
                       ),
                     ),
                   ),
+                  if (showNotes)
+                    Column(
+                      children: [
+                        Card(
+                          elevation: 4,
+                          child: Container(
+                            //height: 40,
+                            width: 550,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.description,
+                                            color: Color(0xffff6900),
+                                          ),
+                                          Gap(5),
+                                          Text(
+                                            "Notes & Resources",
+                                            style: TextStyle(fontSize: 14),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.keyboard_arrow_down_outlined,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Divider(),
+                                Center(
+                                  child: Column(
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundColor: Color(0xFFD0D0D0),
+                                        child: Icon(
+                                          Icons.description,
+                                          // color: Color(0xFFD0D0D0),
+                                        ),
+                                      ),
+                                      Text(
+                                        "No notes & resources \n yet",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Gap(5),
+                                      Text(
+                                        "Your mentor will upload \n important notes, PDFs, links,\n and other study materials here \nif available.",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.black.withAlpha(112),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // notesControl.isLoading.value
+                                //     ? const Center(
+                                //         child: CircularProgressIndicator(),
+                                //       )
+                                //     : ListView.builder(
+                                //         shrinkWrap: true,
+                                //         physics: NeverScrollableScrollPhysics(),
+                                //         itemCount: notesControl
+                                //             .resources
+                                //             .value
+                                //             .notes
+                                //             .length,
+                                //         itemBuilder: (context, index) {
+                                //           var note = notesControl
+                                //               .resources
+                                //               .value
+                                //               .notes[index];
+                                //           return ListTile(
+                                //             leading: Icon(
+                                //               Icons.description,
+                                //               color: Color(0xFFFF6900),
+                                //             ),
+                                //             title: Text(
+                                //               note["title"].toString(),
+                                //             ),
+                                //             //subtitle: Text(note["description"] ?? ""),
+                                //           );
+                                //         },
+                                //       ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   Gap(20),
                   //for class video
                   Padding(
@@ -431,7 +518,6 @@ class _ClassVideoState extends State<ClassVideo> {
                               var videos = video?[index];
                               return InkWell(
                                 onTap: () {
-                                  
                                   Get.to(
                                     () => PlayVideoPage(
                                       videoId: videos?.videoId ?? "",

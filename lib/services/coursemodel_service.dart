@@ -8,7 +8,7 @@ class MyCourseService {
       options: Options(
         headers: {
           "Authorization":
-              "Bearer 8791|q6DJNJqVRHipUnzRtFVjZTurb6tl7NdeTO8uhF493ef525f1",
+              "Bearer 10155|PFZFtPA07GEhDAMWmGIWQNpO4ClCbGsw3kyTj1249674fe6d",
         },
       ),
     );
