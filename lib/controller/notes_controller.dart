@@ -16,7 +16,7 @@ class NotesController extends GetxController {
     try {
       isLoading(true);
       var response = await NotesService.fetchNotes(enrollmentId);
-      print(response.data);
+      //print(response.data);
 
       if (response.statusCode == 200) {
         resources.value = NotesModel.fromJson(response.data);

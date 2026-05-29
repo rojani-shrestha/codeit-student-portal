@@ -173,7 +173,7 @@ class SupportPage extends StatelessWidget {
               title: "Internship Support",
             ),
 
-            const Gap(50),
+            const Gap(30),
 
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -182,7 +182,7 @@ class SupportPage extends StatelessWidget {
                   backgroundColor: Colors.orange.shade700,
                 ),
                 onPressed: () {
-                  Get.to(() =>TicketListPage());
+                  Get.to(() => TicketListPage());
                 },
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,

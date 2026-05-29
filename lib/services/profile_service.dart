@@ -1,14 +1,14 @@
 import 'package:codeit_student_portal/utils/dio_connector.dart';
 import 'package:dio/dio.dart';
 
-class DownloadService {
-  static Future<Response> downloading(int certicateId) async {
+class ProfileService {
+  static Future<Response> getProfile() async {
     var response = await DioConnector.dio.get(
-      "sendcertificate/$certicateId",
+      "profile",
       options: Options(
         headers: {
           "Authorization":
-              "Bearer 10155|PFZFtPA07GEhDAMWmGIWQNpO4ClCbGsw3kyTj1249674fe6d",
+              "Bearer 10784|4Ge0oIY6A0wFjaVv52aWu5d4CFfl1n2Gi4uXPFnW62872ee7",
         },
       ),
     );

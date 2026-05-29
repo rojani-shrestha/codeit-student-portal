@@ -12,10 +12,10 @@ class DownloadController extends GetxController {
     super.onInit();
   }
 
-  Future downloadCertificate(int certificateId) async {
+  Future downloadCertificate(int certicateId) async {
     try {
       isSend(true);
-      var response = await DownloadService.downloading(certificateId);
+      var response = await DownloadService.downloading(certicateId);
 
       if (response.statusCode == 200) {
         download.value = DownloadModel.fromJson(response.data);

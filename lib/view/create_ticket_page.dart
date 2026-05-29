@@ -18,6 +18,7 @@ class CreateTicketPage extends StatefulWidget {
 
 class _CreateTicketPageState extends State<CreateTicketPage> {
   String? selectedValue;
+  //String? selectedValue = "General support";
   final subController = TextEditingController();
   final desController = TextEditingController();
   var isControlPage = true.obs;
@@ -53,7 +54,12 @@ class _CreateTicketPageState extends State<CreateTicketPage> {
         centerTitle: true,
         actions: [
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.only(
+              top: 5,
+              right: 10,
+              bottom: 5,
+              left: 10,
+            ),
             child: Container(
               height: 30,
               width: 87,
@@ -71,7 +77,7 @@ class _CreateTicketPageState extends State<CreateTicketPage> {
             ),
           ),
         ],
-        backgroundColor: Colors.orange.shade100,
+        // backgroundColor: Colors.orange.shade100,
       ),
 
       body: SingleChildScrollView(

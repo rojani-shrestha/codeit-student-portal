@@ -1,5 +1,6 @@
 //import 'package:codeit_student_portal/controller/receipt_controller.dart';
 import 'package:codeit_student_portal/controller/download_receipt_controller.dart';
+import 'package:codeit_student_portal/controller/profile_controller.dart';
 import 'package:codeit_student_portal/model/receipt_model.dart';
 import 'package:codeit_student_portal/view/dashboard_view.dart';
 import 'package:codeit_student_portal/view/receipt_page.dart';
@@ -9,8 +10,9 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 class ReceiptDetailsPage extends GetView<DownloadReceiptController> {
+  ReceiptDetailsPage({super.key, required this.slip});
   final Datum slip;
-  const ReceiptDetailsPage({super.key, required this.slip});
+  final profileControl = Get.find<ProfileController>();
 
   @override
   Widget build(BuildContext context) {
@@ -228,21 +230,27 @@ class ReceiptDetailsPage extends GetView<DownloadReceiptController> {
                             children: [
                               Text("Full Name:"),
                               Gap(30),
-                              Text("Ayush Limbu"),
+                              Text(
+                                profileControl.profile.value.user?.name ?? "",
+                              ),
                             ],
                           ),
                           Row(
                             children: [
                               Text("WhatsApp:"),
                               Gap(30),
-                              Text("9816301514"),
+                              Text(
+                                profileControl.profile.value.user?.phone ?? "",
+                              ),
                             ],
                           ),
                           Row(
                             children: [
                               Text("Email:"),
                               Gap(30),
-                              Text("scropionlimbu@gmail.com"),
+                              Text(
+                                profileControl.profile.value.user?.email ?? "",
+                              ),
                             ],
                           ),
                           Row(
@@ -259,7 +267,7 @@ class ReceiptDetailsPage extends GetView<DownloadReceiptController> {
                   Gap(23),
                   SizedBox(
                     // height: 220,
-                    // width: 390,
+                    //width: double.infinity,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 30, right: 30),
                       child: Column(
@@ -275,8 +283,8 @@ class ReceiptDetailsPage extends GetView<DownloadReceiptController> {
                           Gap(15),
                           Card(
                             elevation: 4,
-                            surfaceTintColor:
-                                Colors.greenAccent, // card vitra ko color
+                            surfaceTintColor: Colors.white.withAlpha(175),
+                            // Colors.greenAccent, // card vitra ko color
                             shadowColor: Colors.orange.shade700,
                             // color: Colors.orange.shade400,
                             child: Padding(

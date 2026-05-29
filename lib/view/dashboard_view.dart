@@ -1,6 +1,7 @@
 import 'package:codeit_student_portal/controller/certificate_controller_api.dart';
 import 'package:codeit_student_portal/controller/googlelink_controller.dart';
 import 'package:codeit_student_portal/controller/my_courses_controller.dart';
+import 'package:codeit_student_portal/controller/profile_controller.dart';
 import 'package:codeit_student_portal/controller/receipt_controller.dart';
 import 'package:codeit_student_portal/view/certificate_page_api.dart';
 import 'package:codeit_student_portal/view/my_course_page.dart';
@@ -11,11 +12,12 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 class DashboardView extends GetView<MyCoursesController> {
+  DashboardView({super.key});
+
   final receiptControl = Get.find<ReceiptController>();
   final certificateControl = Get.find<CertificateControllerApi>();
   final linkControl = Get.find<GooglelinkController>();
-  DashboardView({super.key});
-
+  final profileControl = Get.find<ProfileController>();
   @override
   Widget build(BuildContext context) {
     var courseGet = controller.myCourse.value.data.first;
@@ -58,7 +60,7 @@ class DashboardView extends GetView<MyCoursesController> {
           child: Column(
             children: [
               Text(
-                "Welcome back, Ayush",
+                "Welcome back, ${profileControl.profile.value.user?.name ?? ""}",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               Text("Here's your learning snapshot today."),
