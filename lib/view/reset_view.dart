@@ -1,13 +1,21 @@
+import 'package:codeit_student_portal/controller/reset_controller.dart';
+import 'package:codeit_student_portal/view/login_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ResetView extends StatefulWidget {
-  const ResetView({super.key});
+  final String email;
+  final String otp;
+  const ResetView({super.key, required this.email, required this.otp});
 
   @override
   State<ResetView> createState() => _ResetViewState();
 }
 
 class _ResetViewState extends State<ResetView> {
+  final password = TextEditingController();
+  final confirmPassword = TextEditingController();
+  var resetControl = Get.find<ResetController>();
   bool ishidden = true;
 
   @override
@@ -54,6 +62,7 @@ class _ResetViewState extends State<ResetView> {
                     SizedBox(height: 5),
 
                     TextField(
+                      controller: password,
                       obscureText: ishidden,
                       decoration: InputDecoration(
                         labelText: "Enter your password",
@@ -87,6 +96,7 @@ class _ResetViewState extends State<ResetView> {
                     SizedBox(height: 10),
 
                     TextField(
+                      controller: confirmPassword,
                       obscureText: ishidden,
                       decoration: InputDecoration(
                         labelText: "Enter your password",
@@ -124,7 +134,44 @@ class _ResetViewState extends State<ResetView> {
                         style: FilledButton.styleFrom(
                           backgroundColor: Colors.deepOrange,
                         ),
-                        onPressed: () {},
+                        onPressed: () async {
+                          if (password.text.isEmpty ||
+                              confirmPassword.text.isEmpty) {
+                            Get.snackbar("Error", "Fill all fields");
+                            return;
+                          }
+
+                          if (password.text != confirmPassword.text) {
+                            Get.snackbar("Error", "Password does not match");
+                            return;
+                          }
+
+                          if (password.text.length < 6) {
+                            Get.snackbar(
+                              "Error",
+                              "Minimum 6 characters required",
+                            );
+                            return;
+                          }
+                          await resetControl.resetPass(
+                            widget.email,
+                            widget.otp,
+                            password.text.trim(),
+                          );
+                          if (resetControl.reset.value.success == true) {
+                            Get.snackbar(
+                              "Success",
+                              "Password reset successful",
+                            );
+
+                            Get.offAll(() => LoginView());
+                          } else {
+                            Get.snackbar(
+                              "Error",
+                              resetControl.reset.value.message ?? "Failed",
+                            );
+                          }
+                        },
                         child: Text(
                           "Save",
                           style: TextStyle(color: Colors.white),

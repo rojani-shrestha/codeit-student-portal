@@ -1,16 +1,23 @@
+import 'package:codeit_student_portal/controller/otp_verify_controller.dart';
 import 'package:codeit_student_portal/view/reset_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 class OtpView extends StatefulWidget {
-  const OtpView({super.key});
+  final String? email;
+  const OtpView({super.key, required this.email});
 
   @override
   State<OtpView> createState() => _OtpViewState();
 }
 
 class _OtpViewState extends State<OtpView> {
+  final otpControl = Get.find<OtpVerifyController>();
+  final List<TextEditingController> otpBoxes = List.generate(
+    6,
+    (_) => TextEditingController(),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +25,7 @@ class _OtpViewState extends State<OtpView> {
       body: Center(
         child: Container(
           height: 777.8,
-          width: 360.04,
+          width: 380,
 
           child: Center(
             child: Column(
@@ -36,13 +43,14 @@ class _OtpViewState extends State<OtpView> {
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(4, (index) {
+                  children: List.generate(6, (index) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 6),
                       child: SizedBox(
-                        height: 85,
-                        width: 70,
+                        height: 50,
+                        width: 50,
                         child: TextField(
+                          controller: otpBoxes[index],
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize: 24,
@@ -72,6 +80,7 @@ class _OtpViewState extends State<OtpView> {
                     );
                   }),
                 ),
+                Gap(10),
                 SizedBox(
                   height: 45,
                   width: double.infinity,
@@ -79,8 +88,21 @@ class _OtpViewState extends State<OtpView> {
                     style: FilledButton.styleFrom(
                       backgroundColor: Colors.deepOrange,
                     ),
-                    onPressed: () {
-                      Get.to(() =>ResetView());
+                    onPressed: () async {
+                      String otp = otpBoxes.map((e) => e.text).join();
+
+                      if (otp.length != 6) {
+                        Get.snackbar("Error", "Enter full OTP");
+                        return;
+                      }
+
+                      await otpControl.fetchOtp(widget.email ?? "", otp);
+
+                      if (otpControl.verify.value.success == true) {
+                        Get.to(
+                          () => ResetView(email: widget.email ?? "", otp: otp),
+                        );
+                      }
                     },
                     child: Text(
                       "Verify",

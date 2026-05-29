@@ -21,8 +21,8 @@ class _ClassVideoState extends State<ClassVideo> {
   bool showVideos = false;
   bool isClick = false;
   var classControl = Get.find<CourseController>();
-  bool showCourse = false;
-  bool isPress = false;
+  // bool showCourse = false;
+  // bool isPress = false;
   var notesControl = Get.find<NotesController>();
   bool showNotes = false;
   bool isShow = false;
@@ -147,93 +147,94 @@ class _ClassVideoState extends State<ClassVideo> {
                     child: Image.asset("assets/image/flutter.jpg"),
                   ),
 
-                  // for course curriculum
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 66,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            showCourse = !showCourse;
-                            isPress = showCourse;
-                          });
-                        },
-                        child: Card(
-                          elevation: 4,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.menu_book, color: Colors.black),
-                                    Gap(5),
-                                    Text(
-                                      "Course Curriculum",
-                                      style: TextStyle(fontSize: 14),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      showCourse
-                                          ? Icons.keyboard_arrow_down
-                                          : Icons.arrow_forward_ios_rounded,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Gap(5),
-                  if (showCourse)
-                    Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 40,
-                            width: 550,
-                            decoration: BoxDecoration(
-                              border: Border.all(width: 0.5),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.menu_book,
-                                      color: Color(0xFFFF6900),
-                                    ),
-                                    Gap(5),
-                                    Text(
-                                      "Course Curriculum",
-                                      style: TextStyle(fontSize: 14),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [Icon(Icons.keyboard_arrow_down)],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  // // for course curriculum
+                  // Padding(
+                  //   padding: const EdgeInsets.all(8.0),
+                  //   child: Container(
+                  //     height: 66,
+                  //     decoration: BoxDecoration(
+                  //       borderRadius: BorderRadius.circular(10),
+                  //     ),
+                  //     child: InkWell(
+                  //       onTap: () {
+                  //         setState(() {
+                  //           showCourse = !showCourse;
+                  //           isPress = showCourse;
+                  //         });
+                  //       },
+                  //       child: Card(
+                  //         elevation: 4,
+                  //         child: Padding(
+                  //           padding: const EdgeInsets.all(8.0),
+                  //           child: Row(
+                  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //             children: [
+                  //               Row(
+                  //                 children: [
+                  //                   Icon(Icons.menu_book, color: Colors.black),
+                  //                   Gap(5),
+                  //                   Text(
+                  //                     "Course Curriculum",
+                  //                     style: TextStyle(fontSize: 14),
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //               Row(
+                  //                 children: [
+                  //                   Icon(
+                  //                     showCourse
+                  //                         ? Icons.keyboard_arrow_down
+                  //                         : Icons.arrow_forward_ios_rounded,
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // Gap(5),
+                  // if (showCourse)
+                  //   Column(
+                  //     children: [
+                  //       Padding(
+                  //         padding: const EdgeInsets.all(8.0),
+                  //         child: Container(
+                  //           height: 40,
+                  //           width: 550,
+                  //           decoration: BoxDecoration(
+                  //             border: Border.all(width: 0.5),
+                  //             borderRadius: BorderRadius.circular(10),
+                  //           ),
+                  //           child: Row(
+                  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //             children: [
+                  //               Row(
+                  //                 children: [
+                  //                   Icon(
+                  //                     Icons.menu_book,
+                  //                     color: Color(0xFFFF6900),
+                  //                   ),
+                  //                   Gap(5),
+                  //                   Text(
+                  //                     "Course Curriculum",
+                  //                     style: TextStyle(fontSize: 14),
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //               Row(
+                  //                 children: [Icon(Icons.keyboard_arrow_down)],
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
                   Gap(10),
+
                   //for notes & resources
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -328,65 +329,104 @@ class _ClassVideoState extends State<ClassVideo> {
                                   ],
                                 ),
                                 Divider(),
-                                Center(
-                                  child: Column(
-                                    children: [
-                                      CircleAvatar(
-                                        backgroundColor: Color(0xFFD0D0D0),
-                                        child: Icon(
-                                          Icons.description,
-                                          // color: Color(0xFFD0D0D0),
-                                        ),
-                                      ),
-                                      Text(
-                                        "No notes & resources \n yet",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      Gap(5),
-                                      Text(
-                                        "Your mentor will upload \n important notes, PDFs, links,\n and other study materials here \nif available.",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.black.withAlpha(112),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                // notesControl.isLoading.value
-                                //     ? const Center(
-                                //         child: CircularProgressIndicator(),
-                                //       )
-                                //     : ListView.builder(
-                                //         shrinkWrap: true,
-                                //         physics: NeverScrollableScrollPhysics(),
-                                //         itemCount: notesControl
-                                //             .resources
-                                //             .value
-                                //             .notes
-                                //             .length,
-                                //         itemBuilder: (context, index) {
-                                //           var note = notesControl
-                                //               .resources
-                                //               .value
-                                //               .notes[index];
-                                //           return ListTile(
-                                //             leading: Icon(
-                                //               Icons.description,
-                                //               color: Color(0xFFFF6900),
-                                //             ),
-                                //             title: Text(
-                                //               note["title"].toString(),
-                                //             ),
-                                //             //subtitle: Text(note["description"] ?? ""),
-                                //           );
-                                //         },
+
+                                // Center(
+                                //   child: Column(
+                                //     children: [
+                                //       CircleAvatar(
+                                //         backgroundColor: Color(0xFFD0D0D0),
+                                //         child: Icon(
+                                //           Icons.description,
+                                //           // color: Color(0xFFD0D0D0),
+                                //         ),
                                 //       ),
+                                //       Text(
+                                //         "No notes & resources \n yet",
+                                //         textAlign: TextAlign.center,
+                                //         style: TextStyle(
+                                //           fontSize: 16,
+                                //           fontWeight: FontWeight.bold,
+                                //         ),
+                                //       ),
+                                //       Gap(5),
+                                //       Text(
+                                //         "Your mentor will upload \n important notes, PDFs, links,\n and other study materials here \nif available.",
+                                //         textAlign: TextAlign.center,
+                                //         style: TextStyle(
+                                //           fontSize: 14,
+                                //           color: Colors.black.withAlpha(112),
+                                //         ),
+                                //       ),
+                                //     ],
+                                //   ),
+                                // ),
+                                Obx(() {
+                                  if (notesControl.isLoading.value) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  }
+
+                                  if (notesControl
+                                      .resources
+                                      .value
+                                      .notes
+                                      .isEmpty) {
+                                    return Center(
+                                      child: Column(
+                                        children: [
+                                          CircleAvatar(
+                                            backgroundColor: Color(0xFFD0D0D0),
+                                            child: Icon(Icons.description),
+                                          ),
+                                          Text(
+                                            "No notes & resources \n yet",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Gap(5),
+                                          Text(
+                                            "Your mentor will upload \n important notes, PDFs, links,\n and other study materials here \nif available.",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.black.withAlpha(
+                                                112,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }
+
+                                  return ListView.builder(
+                                    shrinkWrap: true,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    itemCount: notesControl
+                                        .resources
+                                        .value
+                                        .notes
+                                        .length,
+                                    itemBuilder: (context, index) {
+                                      var note = notesControl
+                                          .resources
+                                          .value
+                                          .notes[index];
+
+                                      return ListTile(
+                                        leading: Icon(
+                                          Icons.description,
+                                          color: Color(0xFFFF6900),
+                                        ),
+                                        title: Text(note["title"].toString()),
+                                      );
+                                    },
+                                  );
+                                }),
                               ],
                             ),
                           ),
@@ -440,7 +480,7 @@ class _ClassVideoState extends State<ClassVideo> {
                                         });
                                       },
                                       child: Container(
-                                        height: 26,
+                                        height: 30,
                                         width: 71,
                                         decoration: BoxDecoration(
                                           border: Border.all(
@@ -527,7 +567,7 @@ class _ClassVideoState extends State<ClassVideo> {
                                 },
                                 child: Container(
                                   height: 102,
-                                  width: 390,
+                                  width: 400,
                                   decoration: BoxDecoration(
                                     border: Border(
                                       top: BorderSide(

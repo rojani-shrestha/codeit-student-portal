@@ -47,193 +47,195 @@ class MyCoursePage extends GetView<MyCoursesController> {
           return Center(child: CircularProgressIndicator());
         }
         return SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(() => DashboardView());
-                      },
-                      child: Row(
-                        children: [
-                          Icon(Icons.home),
-                          Gap(3.5),
-                          Text("Home", style: TextStyle(fontSize: 15)),
-                        ],
-                      ),
-                    ),
-                    Gap(7),
-                    Text(">", style: TextStyle(fontSize: 20)),
-                    Gap(7),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text("My Courses", style: TextStyle(fontSize: 15)),
-                    ),
-                  ],
-                ),
-              ),
-              Gap(30),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "My Courses",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Gap(24),
-              Column(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              elevation: 4,
+              child: Column(
                 children: [
-                  ListView.builder(
-                    // scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: controller.myCourse.value.data.length,
-                    itemBuilder: (context, index) {
-                      var courseMine = controller.myCourse.value.data[index];
-                      return Column(
-                        children: [
-                          Container(
-                            width: 390,
-                            height: 191,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                topRight: Radius.circular(10),
-                              ),
-                              //color: Colors.grey,
-                            ),
-                            child: Image.asset(
-                              "assets/image/flutter.jpg",
-                              fit: BoxFit.cover,
-                            ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(() => DashboardView());
+                          },
+                          child: Row(
+                            children: [
+                              Icon(Icons.home),
+                              Gap(3.5),
+                              Text("Home", style: TextStyle(fontSize: 15)),
+                            ],
                           ),
-                          Material(
-                            elevation: 4,
-                            borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(10),
-                              bottomLeft: Radius.circular(10),
-                            ),
-                            clipBehavior: Clip.antiAlias,
-                            child: Container(
-                              width: 390,
-                              height: 200,
-                              decoration: BoxDecoration(color: Colors.white),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: SizedBox(
-                                  height: 165,
-                                  width: 350,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "${courseMine.courseName}",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      Gap(10),
-                                      Row(
+                        ),
+                        Gap(7),
+                        Text(">", style: TextStyle(fontSize: 20)),
+                        Gap(7),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            "My Courses",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Gap(30),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "My Courses",
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Gap(24),
+                  Column(
+                    children: [
+                      ListView.builder(
+                        // scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: controller.myCourse.value.data.length,
+                        itemBuilder: (context, index) {
+                          var courseMine =
+                              controller.myCourse.value.data[index];
+                          return Column(
+                            children: [
+                              Column(
+                                children: [
+                                  Image.asset(
+                                    "assets/image/flutter.jpg",
+                                    fit: BoxFit.cover,
+                                  ),
+
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SizedBox(
+                                      //height: 165,
+                                      //width: 350,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Icon(Icons.group),
-                                          Gap(7),
                                           Text(
-                                            "${courseMine.mentorName}",
-                                            style: TextStyle(fontSize: 15),
+                                            "${courseMine.courseName}",
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
-                                        ],
-                                      ),
-                                      Gap(10),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
+                                          Gap(10),
                                           Row(
                                             children: [
-                                              Icon(Icons.play_circle, size: 20),
+                                              Icon(Icons.group),
                                               Gap(7),
                                               Text(
-                                                "${courseMine.lessons} Lesson",
+                                                "${courseMine.mentorName}",
                                                 style: TextStyle(fontSize: 15),
                                               ),
                                             ],
                                           ),
+                                          Gap(10),
                                           Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Icon(Icons.watch_later),
-                                              Gap(7),
-                                              Text("${courseMine.duration}"),
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.play_circle,
+                                                    size: 20,
+                                                  ),
+                                                  Gap(7),
+                                                  Text(
+                                                    "${courseMine.lessons} Lesson",
+                                                    style: TextStyle(
+                                                      fontSize: 15,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(Icons.watch_later),
+                                                  Gap(7),
+                                                  Text(
+                                                    "${courseMine.duration}",
+                                                  ),
+                                                ],
+                                              ),
                                             ],
+                                          ),
+                                          Gap(15),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: SizedBox(
+                                              height: 50,
+                                              child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                  backgroundColor:
+                                                      Colors.white70,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadiusGeometry.circular(
+                                                          10,
+                                                        ),
+                                                  ),
+                                                ),
+                                                onPressed: () {
+                                                  Get.to(() => ClassVideo());
+                                                },
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.play_circle,
+                                                      size: 25,
+                                                      color: Color(0xFFFF6900),
+                                                    ),
+                                                    Gap(5),
+                                                    Text(
+                                                      "Watch Recorded Video",
+                                                      style: TextStyle(
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Color(
+                                                          0xFFFF6900,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
-                                      Gap(15),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: SizedBox(
-                                          height: 50,
-                                          child: ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor: Colors.white70,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadiusGeometry.circular(
-                                                      10,
-                                                    ),
-                                              ),
-                                            ),
-                                            onPressed: () {
-                                              Get.to(() => ClassVideo());
-                                            },
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Icon(
-                                                  Icons.play_circle,
-                                                  size: 25,
-                                                  color: Color(0xFFFF6900),
-                                                ),
-                                                Gap(5),
-                                                Text(
-                                                  "Watch Recorded Video",
-                                                  style: TextStyle(
-                                                    fontSize: 20,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Color(0xFFFF6900),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
+                            ],
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
         );
       }),
